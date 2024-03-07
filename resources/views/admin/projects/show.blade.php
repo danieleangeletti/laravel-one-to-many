@@ -20,7 +20,7 @@
                     </p>
 
                     <p>
-                        Type: {{ $project->type->title }}
+                        Type: <a href="{{ route('admin.types.show', ['type' => $project->type->id]) }}">{{ $project->type->title }}</a>
                     </p>
                 </div>
             </div>
