@@ -38,9 +38,9 @@
                         <div class="mb-3">
                             <label for="type_id" class="form-label">Type</label>
                             <select name="type_id" id="type_id" class="form-select">
-                                <option value="" disabled selected>Select a type</option>
+                                <option value="" disabled {{ old('type_id') == null ? 'selected' : '' }}>Select a type</option>
                                 @foreach ($types as $type)
-                                    <option value="{{ $type->id }}">{{ $type->title }}</option>
+                                    <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>{{ $type->title }}</option>
                                 @endforeach
                             </select>
                             @error('type_id')

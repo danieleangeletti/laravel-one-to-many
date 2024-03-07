@@ -69,8 +69,10 @@ class ProjectController extends Controller
      */
     public function edit(string $slug)
     {
+        $types = Type::All();
+
         $project = Project::where("slug", $slug)->firstOrFail();
-        return view("admin.projects.edit", compact("project"));
+        return view("admin.projects.edit", compact("project", "types"));
     }
 
     /**
@@ -84,6 +86,7 @@ class ProjectController extends Controller
         $project->title = $validated_data["title"];
         $project->slug = Str::slug($validated_data["title"]);
         $project->content = $validated_data["content"];
+        $project->type_id = $validated_data["type_id"];
 
         $project->save();
 
