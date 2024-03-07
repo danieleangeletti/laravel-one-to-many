@@ -35,7 +35,7 @@
                                                 <a href="{{ route('admin.types.edit', ['type' => $type->id]) }}" class="btn btn-warning">EDIT</a>
                                             </div>
                                             <div class="ms-1 me-1">
-                                                <form onsubmit="return confirm('Are you sure you want to delete this project?')" action="{{route ('admin.types.destroy', ['type' => $type->id])}}" method="POST" class="d-inline-block">
+                                                <form onsubmit="return confirm('Are you sure you want to delete this type?')" action="{{route ('admin.types.destroy', ['type' => $type->id])}}" method="POST" class="d-inline-block">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">
