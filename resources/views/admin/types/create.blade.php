@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Add new project')
+@section('page-title', 'Add new type')
 
 @section('main-content')
     <div class="row">
@@ -21,7 +21,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.projects.store') }}" method="POST">
+                    <form action="{{ route('admin.types.store') }}" method="POST">
                         
                         @csrf
 
@@ -29,16 +29,6 @@
                             <label for="title" class="form-label">Title</label>
                             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Insert title..." value="{{ old('title') }}">
                             @error('title')
-                                <div class="alert alert-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="content" class="form-label">Content</label>
-                            <input type="text" class="form-control @error('content') is-invalid @enderror" id="content" name="content" placeholder="Insert content" value="{{ old('content') }}">
-                            @error('content')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>

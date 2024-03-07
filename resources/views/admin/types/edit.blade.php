@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Add new project')
+@section('page-title', $type->title.' EDIT')
 
 @section('main-content')
     <div class="row">
@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
                     <h1 class="text-center text-success">
-                        Add new project
+                        {{$type->title}} EDIT
                     </h1>
 
                     @if ($errors->any())
@@ -21,13 +21,15 @@
                         </div>
                     @endif
 
-                    <form action="{{ route('admin.projects.store') }}" method="POST">
+                        <form action="{{ route('admin.types.update', ['type' => $type->id]) }}" method="POST">
                         
                         @csrf
 
+                        @method('PUT')
+
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Insert title..." value="{{ old('title') }}">
+                            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Insert title..." value="{{ old('title', $type->title) }}">
                             @error('title')
                                 <div class="alert alert-danger">
                                     {{ $message }}
@@ -35,19 +37,9 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="content" class="form-label">Content</label>
-                            <input type="text" class="form-control @error('content') is-invalid @enderror" id="content" name="content" placeholder="Insert content" value="{{ old('content') }}">
-                            @error('content')
-                                <div class="alert alert-danger">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
                         <div>
-                            <button type="submit" class="btn btn-success w-100">
-                                + ADD
+                            <button type="submit" class="btn btn-warning w-100">
+                                EDIT
                             </button>
                         </div>
 
