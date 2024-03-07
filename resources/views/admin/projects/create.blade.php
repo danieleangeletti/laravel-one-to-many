@@ -36,6 +36,21 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="type_id" class="form-label">Type</label>
+                            <select name="type_id" id="type_id" class="form-select">
+                                <option value="" disabled selected>Select a type</option>
+                                @foreach ($types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->title }}</option>
+                                @endforeach
+                            </select>
+                            @error('type_id')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
                             <label for="content" class="form-label">Content</label>
                             <input type="text" class="form-control @error('content') is-invalid @enderror" id="content" name="content" placeholder="Insert content" value="{{ old('content') }}">
                             @error('content')

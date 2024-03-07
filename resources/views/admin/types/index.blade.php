@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
                     <h1 class="text-center text-success">
-                        All projects
+                        All types
                     </h1>
 
                     <a href="{{ route('admin.types.create') }}" class="btn btn-primary w-100">ADD TYPE</a>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 // Models
 use App\Models\Project;
+use App\Models\Type;
 
 // Form Requests
 use App\Http\Requests\StoreProjectRequest;
@@ -32,7 +33,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view("admin.projects.create");
+        $types = Type::All();
+        return view("admin.projects.create", compact('types'));
     }
 
     /**
@@ -46,6 +48,7 @@ class ProjectController extends Controller
         $project->title = $validated_data["title"];
         $project->slug = Str::slug($validated_data["title"]);
         $project->content = $validated_data["content"];
+        $project->type_id = $validated_data["type_id"];
 
         $project->save();
 
