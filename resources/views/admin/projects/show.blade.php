@@ -18,6 +18,10 @@
                     <p>
                         {{ $project->content }}
                     </p>
+
+                    <p>
+                        Type: {{ $project->type->title }}
+                    </p>
                 </div>
             </div>
         </div>
