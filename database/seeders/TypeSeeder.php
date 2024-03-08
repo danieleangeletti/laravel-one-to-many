@@ -23,13 +23,13 @@ class TypeSeeder extends Seeder
         Schema::enableForeignKeyConstraints();
 
         $all_types = [
-            'HTML',
-            'CSS',
-            'JS',
-            'Vue',
-            'PHP',
-            'MySql',
-            'Laravel'
+            'Software/Application Development',
+            'Web Development Projects',
+            'Game Development',
+            'Database Projects',
+            'Cybersecurity Projects',
+            'Automation and Scripting',
+            'Project Management and Development Tools'
         ];
 
         foreach ($all_types as $single_type) {
