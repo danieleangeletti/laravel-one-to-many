@@ -20,7 +20,12 @@
                     </p>
 
                     <p>
-                        Type: <a href="{{ route('admin.types.show', ['type' => $project->type->id]) }}" class="link-offset-2 link-underline link-underline-opacity-0">{{ $project->type->title }}</a>
+                        Type: 
+                            @if ($project->type != null)
+                                <a href="{{ route('admin.types.show', ['type' => $project->type->id]) }}" class="link-offset-2 link-underline link-underline-opacity-0">{{ $project->type->title }}</a>
+                            @else
+                                -
+                            @endif
                     </p>
                 </div>
             </div>
